@@ -1,0 +1,88 @@
+{
+  "least_important": [
+    "fbs",
+    "chol",
+    "trestbps",
+    "age"
+  ],
+  "ranking": [
+    {
+      "feature": "cp",
+      "mean_abs_shap": 0.39949094088628134,
+      "share_pct": 14.690932201015405,
+      "plain_english": "chest pain type"
+    },
+    {
+      "feature": "gender",
+      "mean_abs_shap": 0.3261884117918967,
+      "share_pct": 11.995295392081838,
+      "plain_english": "biological sex"
+    },
+    {
+      "feature": "exang",
+      "mean_abs_shap": 0.3059080943816502,
+      "share_pct": 11.24950434253257,
+      "plain_english": "exercise-induced angina"
+    },
+    {
+      "feature": "oldpeak",
+      "mean_abs_shap": 0.2874961949600591,
+      "share_pct": 10.572422740896187,
+      "plain_english": "ST depression induced by exercise"
+    },
+    {
+      "feature": "ca",
+      "mean_abs_shap": 0.2813397365628562,
+      "share_pct": 10.346024333185046,
+      "plain_english": "number of major vessels coloured by fluoroscopy"
+    },
+    {
+      "feature": "thal",
+      "mean_abs_shap": 0.2241901404919953,
+      "share_pct": 8.244397599598042,
+      "plain_english": "thalassemia / blood-flow defect type"
+    },
+    {
+      "feature": "slope",
+      "mean_abs_shap": 0.2139128332625171,
+      "share_pct": 7.866458557019731,
+      "plain_english": "slope of the peak exercise ST segment"
+    },
+    {
+      "feature": "thalach",
+      "mean_abs_shap": 0.2016640306307924,
+      "share_pct": 7.416019484216051,
+      "plain_english": "maximum heart rate achieved"
+    },
+    {
+      "feature": "restecg",
+      "mean_abs_shap": 0.1290450989511627,
+      "share_pct": 4.745521376176862,
+      "plain_english": "resting ECG result"
+    },
+    {
+      "feature": "age",
+      "mean_abs_shap": 0.10066325493359317,
+      "share_pct": 3.7018037257168013,
+      "plain_english": "age in years"
+    },
+    {
+      "feature": "trestbps",
+      "mean_abs_shap": 0.0958631338796699,
+      "share_pct": 3.52528344517325,
+      "plain_english": "resting blood pressure"
+    },
+    {
+      "feature": "chol",
+      "mean_abs_shap": 0.07767767208103679,
+      "share_pct": 2.8565288903511314,
+      "plain_english": "serum cholesterol"
+    },
+    {
+      "feature": "fbs",
+      "mean_abs_shap": 0.07586332660323972,
+      "share_pct": 2.789807912037075,
+      "plain_english": "fasting blood sugar > 120 mg/dl"
+    }
+  ]
+}

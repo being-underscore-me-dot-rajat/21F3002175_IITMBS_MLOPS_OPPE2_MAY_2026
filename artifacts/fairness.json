@@ -1,0 +1,36 @@
+[
+  {
+    "sensitive_attribute": "age",
+    "overall": {
+      "count": 59.0,
+      "accuracy": 0.847457627118644,
+      "precision": 0.7948717948717948,
+      "recall_TPR": 0.96875,
+      "selection_rate": 0.6610169491525424,
+      "true_positive_rate": 0.96875,
+      "false_positive_rate": 0.2962962962962963
+    },
+    "demographic_parity_difference": 0.5666666666666667,
+    "demographic_parity_ratio": 0.37037037037037035,
+    "equalized_odds_difference": 0.6666666666666666,
+    "accuracy_gap": 0.18546365914786966,
+    "verdict": "BIAS DETECTED"
+  },
+  {
+    "sensitive_attribute": "gender",
+    "overall": {
+      "count": 59.0,
+      "accuracy": 0.847457627118644,
+      "precision": 0.7948717948717948,
+      "recall_TPR": 0.96875,
+      "selection_rate": 0.6610169491525424,
+      "true_positive_rate": 0.96875,
+      "false_positive_rate": 0.2962962962962963
+    },
+    "demographic_parity_difference": 0.24796747967479682,
+    "demographic_parity_ratio": 0.7024390243902439,
+    "equalized_odds_difference": 0.12727272727272732,
+    "accuracy_gap": 0.05962059620596205,
+    "verdict": "BIAS DETECTED"
+  }
+]

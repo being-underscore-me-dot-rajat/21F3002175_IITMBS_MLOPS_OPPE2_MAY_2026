@@ -1,0 +1,162 @@
+{
+  "verdict": "SIGNIFICANT INPUT DRIFT",
+  "n_drifted": 13,
+  "features": [
+    {
+      "feature": "chol",
+      "type": "numeric",
+      "test": "KS",
+      "statistic": 0.5102,
+      "p_value": 3.290199324750223e-17,
+      "psi": 2.4511,
+      "psi_severity": "major",
+      "drift_detected": true,
+      "ref_mean": 246.513,
+      "cur_mean": 346.53
+    },
+    {
+      "feature": "trestbps",
+      "type": "numeric",
+      "test": "KS",
+      "statistic": 0.4274,
+      "p_value": 4.812898060282634e-12,
+      "psi": 1.5325,
+      "psi_severity": "major",
+      "drift_detected": true,
+      "ref_mean": 131.299,
+      "cur_mean": 147.77
+    },
+    {
+      "feature": "oldpeak",
+      "type": "numeric",
+      "test": "KS",
+      "statistic": 0.4436,
+      "p_value": 5.949233409749771e-13,
+      "psi": 1.477,
+      "psi_severity": "major",
+      "drift_detected": true,
+      "ref_mean": 1.074,
+      "cur_mean": 2.883
+    },
+    {
+      "feature": "thal",
+      "type": "categorical",
+      "test": "Chi2",
+      "statistic": 1116.0633,
+      "p_value": 1.1915626600663735e-241,
+      "psi": 1.1687,
+      "psi_severity": "major",
+      "drift_detected": true,
+      "ref_mean": 2.342,
+      "cur_mean": 1.41
+    },
+    {
+      "feature": "ca",
+      "type": "categorical",
+      "test": "Chi2",
+      "statistic": 160.9426,
+      "p_value": 9.178486311416692e-34,
+      "psi": 1.0507,
+      "psi_severity": "major",
+      "drift_detected": true,
+      "ref_mean": 0.731,
+      "cur_mean": 2.01
+    },
+    {
+      "feature": "fbs",
+      "type": "categorical",
+      "test": "Chi2",
+      "statistic": 159.4444,
+      "p_value": 1.4963784701019743e-36,
+      "psi": 0.8804,
+      "psi_severity": "major",
+      "drift_detected": true,
+      "ref_mean": 0.124,
+      "cur_mean": 0.54
+    },
+    {
+      "feature": "thalach",
+      "type": "numeric",
+      "test": "KS",
+      "statistic": 0.265,
+      "p_value": 7.90327416794504e-05,
+      "psi": 0.5993,
+      "psi_severity": "major",
+      "drift_detected": true,
+      "ref_mean": 149.274,
+      "cur_mean": 135.32
+    },
+    {
+      "feature": "age",
+      "type": "numeric",
+      "test": "KS",
+      "statistic": 0.2016,
+      "p_value": 0.005536398276890366,
+      "psi": 0.5697,
+      "psi_severity": "major",
+      "drift_detected": true,
+      "ref_mean": 54.094,
+      "cur_mean": 52.16
+    },
+    {
+      "feature": "slope",
+      "type": "categorical",
+      "test": "Chi2",
+      "statistic": 98.5133,
+      "p_value": 4.0560412370651706e-22,
+      "psi": 0.4731,
+      "psi_severity": "major",
+      "drift_detected": true,
+      "ref_mean": 1.368,
+      "cur_mean": 1.01
+    },
+    {
+      "feature": "cp",
+      "type": "categorical",
+      "test": "Chi2",
+      "statistic": 53.2094,
+      "p_value": 1.6542671019107535e-11,
+      "psi": 0.2074,
+      "psi_severity": "moderate",
+      "drift_detected": true,
+      "ref_mean": 0.927,
+      "cur_mean": 1.5
+    },
+    {
+      "feature": "restecg",
+      "type": "categorical",
+      "test": "Chi2",
+      "statistic": 698.2125,
+      "p_value": 2.427101261076164e-152,
+      "psi": 0.1298,
+      "psi_severity": "moderate",
+      "drift_detected": true,
+      "ref_mean": 0.538,
+      "cur_mean": 1.01
+    },
+    {
+      "feature": "exang",
+      "type": "categorical",
+      "test": "Chi2",
+      "statistic": 11.732,
+      "p_value": 0.0006143614126314665,
+      "psi": 0.1082,
+      "psi_severity": "moderate",
+      "drift_detected": true,
+      "ref_mean": 0.329,
+      "cur_mean": 0.49
+    },
+    {
+      "feature": "gender",
+      "type": "categorical",
+      "test": "Chi2",
+      "statistic": 7.6372,
+      "p_value": 0.005717620404198399,
+      "psi": 0.0704,
+      "psi_severity": "none",
+      "drift_detected": true,
+      "ref_mean": 0.688,
+      "cur_mean": 0.56
+    }
+  ]
+}

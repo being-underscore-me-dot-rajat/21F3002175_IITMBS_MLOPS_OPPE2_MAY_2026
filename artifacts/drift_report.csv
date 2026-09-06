@@ -1,0 +1,14 @@
+feature,type,test,statistic,p_value,psi,psi_severity,drift_detected,ref_mean,cur_mean
+chol,numeric,KS,0.5102,3.290199324750223e-17,2.4511,major,True,246.513,346.53
+trestbps,numeric,KS,0.4274,4.812898060282634e-12,1.5325,major,True,131.299,147.77
+oldpeak,numeric,KS,0.4436,5.949233409749771e-13,1.477,major,True,1.074,2.883
+thal,categorical,Chi2,1116.0633,1.1915626600663735e-241,1.1687,major,True,2.342,1.41
+ca,categorical,Chi2,160.9426,9.178486311416692e-34,1.0507,major,True,0.731,2.01
+fbs,categorical,Chi2,159.4444,1.4963784701019743e-36,0.8804,major,True,0.124,0.54
+thalach,numeric,KS,0.265,7.90327416794504e-05,0.5993,major,True,149.274,135.32
+age,numeric,KS,0.2016,0.005536398276890366,0.5697,major,True,54.094,52.16
+slope,categorical,Chi2,98.5133,4.0560412370651706e-22,0.4731,major,True,1.368,1.01
+cp,categorical,Chi2,53.2094,1.6542671019107535e-11,0.2074,moderate,True,0.927,1.5
+restecg,categorical,Chi2,698.2125,2.427101261076164e-152,0.1298,moderate,True,0.538,1.01
+exang,categorical,Chi2,11.732,0.0006143614126314665,0.1082,moderate,True,0.329,0.49
+gender,categorical,Chi2,7.6372,0.005717620404198399,0.0704,none,True,0.688,0.56
