@@ -62,8 +62,8 @@
     },
     {
       "feature": "age",
-      "mean_abs_shap": 0.10066325493359317,
-      "share_pct": 3.7018037257168013,
+      "mean_abs_shap": 0.10066325493359315,
+      "share_pct": 3.701803725716801,
       "plain_english": "age in years"
     },
     {
@@ -74,8 +74,8 @@
     },
     {
       "feature": "chol",
-      "mean_abs_shap": 0.07767767208103679,
-      "share_pct": 2.8565288903511314,
+      "mean_abs_shap": 0.07767767208103676,
+      "share_pct": 2.8565288903511306,
       "plain_english": "serum cholesterol"
     },
     {

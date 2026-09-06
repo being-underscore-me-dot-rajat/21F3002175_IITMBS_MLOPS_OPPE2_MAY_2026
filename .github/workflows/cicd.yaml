@@ -1,0 +1,88 @@
+name: CI-CD to GKE
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['**.md', 'artifacts/**']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+  REGION: ${{ vars.GCP_REGION }}
+  ZONE: ${{ vars.GKE_ZONE }}
+  CLUSTER: ${{ vars.GKE_CLUSTER }}
+  REPO: ${{ vars.AR_REPO }}
+  IMAGE_NAME: heart-api
+
+jobs:
+  ci:
+    name: CI - lint & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r app/requirements.txt pytest
+      - run: python -m pytest tests -q
+
+  cd:
+    name: CD - build, push, deploy
+    needs: ci
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: auth
+        name: Authenticate to Google Cloud (keyless / WIF)
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+
+      - name: Build and push image
+        run: |
+          IMAGE="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPO}/${IMAGE_NAME}"
+          docker build -f app/Dockerfile \
+            -t "${IMAGE}:${GITHUB_SHA::7}" -t "${IMAGE}:latest" .
+          docker push "${IMAGE}:${GITHUB_SHA::7}"
+          docker push "${IMAGE}:latest"
+          echo "IMAGE_REF=${IMAGE}:${GITHUB_SHA::7}" >> "$GITHUB_ENV"
+
+      - uses: google-github-actions/get-gke-credentials@v2
+        with:
+          cluster_name: ${{ env.CLUSTER }}
+          location: ${{ env.ZONE }}
+
+      - name: Deploy to GKE
+        run: |
+          sed -i "s|IMAGE_PLACEHOLDER|${IMAGE_REF}|g" k8s/deployment.yaml
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+          kubectl apply -f k8s/hpa.yaml
+          kubectl rollout status deployment/heart-api --timeout=300s
+
+      - name: Smoke test the live service
+        run: |
+          for i in $(seq 1 30); do
+            IP=$(kubectl get svc heart-api -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+            [ -n "$IP" ] && break || sleep 10
+          done
+          echo "EXTERNAL_IP=$IP"
+          curl -fsS "http://$IP/health"
+          curl -fsS -X POST "http://$IP/predict" -H 'Content-Type: application/json' \
+            -d '{"age":63,"gender":"male","cp":3,"trestbps":145,"chol":233,"fbs":1,"restecg":0,"thalach":150,"exang":0,"oldpeak":2.3,"slope":0,"ca":0,"thal":1}'
+          kubectl get hpa heart-api
