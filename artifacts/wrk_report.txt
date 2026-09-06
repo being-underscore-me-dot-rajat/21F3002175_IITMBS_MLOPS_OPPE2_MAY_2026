@@ -1,0 +1,18 @@
+=== STRESS: 4 threads / 2100 connections / 60s ===
+start_utc=2026-09-06T10:05:25Z
+Running 1m test @ http://34.46.243.167/predict
+  4 threads and 2100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     6.45s     2.42s   10.00s    72.62%
+    Req/Sec    49.55     54.00   545.00     87.82%
+  Latency Distribution
+     50%    6.87s 
+     75%    8.13s 
+     90%    8.93s 
+     99%    9.91s 
+  8986 requests in 1.00m, 2.64MB read
+  Socket errors: connect 0, read 2082, write 0, timeout 911
+Requests/sec:    149.60
+Transfer/sec:     45.02KB
+end_utc=2026-09-06T10:06:25Z
+--- pod / HPA state right after the run ---
